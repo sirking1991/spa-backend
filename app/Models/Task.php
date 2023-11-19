@@ -16,4 +16,8 @@ class Task extends Model
         'completed'
     ];
 
+    protected $hidden = [
+        'user_id'
+    ];
+
 }

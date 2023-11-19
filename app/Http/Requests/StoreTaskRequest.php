@@ -23,8 +23,8 @@ class StoreTaskRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'description' => 'string',
-            'due_on' => 'date',
+            'description' => 'required',
+            'due_on' => 'string:date',
             'completed' => 'boolean',
         ];
     }

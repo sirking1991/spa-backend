@@ -14,12 +14,26 @@ class ApiTest extends TestCase
 
     public function test_user_can_register(): void
     {
-        $this->assertTrue(true);
+        $response = $this->post('/api/register', [
+            'name' => 'Test User',
+            'email' => 'test@email.com',
+            'password' => 'password',
+            'password_confirmation' => 'password'
+        ]);
+
+        $response->assertStatus(201);
     }
 
     public function test_user_can_login(): void
     {
-        $this->assertTrue(true);
+        $this->test_user_can_register();
+
+        $response = $this->post('/api/login', [
+            'email' => 'test@email.com',
+            'password' => 'password',
+        ]);
+
+        $response->assertStatus(201);
     }
 
     public function test_user_can_view_tasks(): void
