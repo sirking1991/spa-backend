@@ -16,7 +16,7 @@ class TaskSeeder extends Seeder
     public function run(): void
     {
         foreach (User::all() as $user) {
-            Task::factory(rand(1,10))
+            Task::factory(rand(10,20))
                 ->create(['user_id'=>$user->id]);
         }
     }

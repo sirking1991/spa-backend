@@ -26,7 +26,7 @@ class UpdateTaskRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'description' => 'string',
+            'description' => 'sometimes',
             'due_on' => 'string:date',
             'completed' => 'boolean',
         ];
