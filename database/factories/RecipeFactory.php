@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Task>
  */
-class TaskFactory extends Factory
+class RecipeFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,10 +17,10 @@ class TaskFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->word,
-            'description' => fake()->sentence,
-            'due_on' => now()->addDays(rand(-10,10)),
-            'completed' => rand(0,1)
+            'name' => fake()->sentence,
+            'type' => fake()->randomElement(['dessert','appetizer','main-dish']),
+            'ingredients' => fake()->sentences(rand(2,10), true),
+            'instruction' => fake()->sentences(rand(2,10), true),
         ];
     }
 }

@@ -2,19 +2,19 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Task;
+use App\Models\Recipe;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateTaskRequest extends FormRequest
+class UpdateRecipeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        $task = $this->route('task');
+        $recipe = $this->route('recipe');
         
-        return $task && $this->user()->id == $task->user_id;
+        return $recipe && $this->user()->id == $recipe->user_id;
     }
 
     /**
@@ -25,10 +25,10 @@ class UpdateTaskRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required',
-            'description' => 'sometimes',
-            'due_on' => 'string:date',
-            'completed' => 'boolean',
+            'name' => 'required',
+            'type' => 'required:on:dessert,appetizer,main-dish',
+            'ingredients' => 'required',
+            'instruction' => 'required',
         ];
     }
 }

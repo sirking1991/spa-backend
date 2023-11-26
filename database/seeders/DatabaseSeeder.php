@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use Database\Factories\TaskFactory;
+use Database\Seeders\RecipeSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,6 +19,6 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@email.com',
         ]);
 
-        $this->call(TaskSeeder::class);
+        $this->call(RecipeSeeder::class);
     }
 }
